@@ -5,3 +5,9 @@
   <h2>{{contact.firstName}} {{contact.lastName}}</h2>
   <p>Email : {{contact.email}}</p>
 </article>
+
+<ul>
+  <li *ngFor="let contact of contacts">
+    {{contact.firstName}} {{contact.lastName}}
+  </li>
+</ul>
