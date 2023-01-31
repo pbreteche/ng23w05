@@ -9,10 +9,9 @@ import DATA from "../stub/contacts";
 })
 export class AppComponent {
   title = 'Carnet d\'adresse';
-  current?: Contact;
+  current: Contact = DATA[0];
 
   setCurrent(contact: Contact) {
-    console.log(contact);
     this.current = contact;
   }
 }

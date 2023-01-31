@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Contact} from "../../model/contact";
 import DATA from "../../stub/contacts";
 
@@ -8,5 +8,6 @@ import DATA from "../../stub/contacts";
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent {
-  contact: Contact = DATA[0];
+  @Input()
+  contact?: Contact;
 }
