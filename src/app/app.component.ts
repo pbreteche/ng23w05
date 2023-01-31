@@ -9,5 +9,4 @@ import DATA from "../stub/contacts";
 })
 export class AppComponent {
   title = 'Carnet d\'adresse';
-  contacts: Contact[] = DATA;
 }
