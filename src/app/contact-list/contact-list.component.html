@@ -1,5 +1,11 @@
-<ul>
-  <li *ngFor="let contact of contacts">
-    {{contact.firstName}} {{contact.lastName}}
-  </li>
-</ul>
+<nav>
+  <ul>
+    <li *ngFor="let contact of contacts">
+      <a (click)="setCurrent(contact)">{{contact.firstName}} {{contact.lastName}}</a>
+    </li>
+  </ul>
+</nav>
+
+<pre>
+  {{current|json}}
+</pre>

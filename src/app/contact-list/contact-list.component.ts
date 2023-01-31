@@ -9,4 +9,9 @@ import DATA from "../../stub/contacts";
 })
 export class ContactListComponent {
   contacts: Contact[] = DATA;
+  current: Contact = {};
+
+  setCurrent(contact: Contact) {
+    this.current = contact;
+  }
 }
