@@ -2,4 +2,4 @@
 <p>Mon composant</p>
 
 <app-contact-detail></app-contact-detail>
-<app-contact-list></app-contact-list>
+<app-contact-list (contactSelected)="setCurrent($event)"></app-contact-list>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Contact} from "../../model/contact";
 import DATA from "../../stub/contacts";
 
@@ -9,9 +9,10 @@ import DATA from "../../stub/contacts";
 })
 export class ContactListComponent {
   contacts: Contact[] = DATA;
-  current: Contact = {};
+  @Output()
+  contactSelected = new EventEmitter<Contact>();
 
   setCurrent(contact: Contact) {
-    this.current = contact;
+    this.contactSelected.emit(contact);
   }
 }
