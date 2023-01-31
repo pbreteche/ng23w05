@@ -1,10 +1,7 @@
 <h1>{{title}}</h1>
 <p>Mon composant</p>
 
-<article>
-  <h2>{{contact.firstName}} {{contact.lastName}}</h2>
-  <p>Email : {{contact.email}}</p>
-</article>
+<app-contact-detail></app-contact-detail>
 
 <ul>
   <li *ngFor="let contact of contacts">

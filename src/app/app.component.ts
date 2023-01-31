@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Contact} from "../model/contact";
-import DATA from '../stub/contacts';
+import DATA from "../stub/contacts";
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,4 @@ import DATA from '../stub/contacts';
 export class AppComponent {
   title = 'Carnet d\'adresse';
   contacts: Contact[] = DATA;
-  contact: Contact = DATA[0];
 }
