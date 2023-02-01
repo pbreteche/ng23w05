@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+$background-light: #feb;
+$default-foreground: #123;
+
+html {
+  font: 20px "DejaVu Sans", sans-serif;
+  color: $default-foreground;
+}
+
+body {
+  background: $background-light;
+  padding: 0;
+  margin: 0;
+}
