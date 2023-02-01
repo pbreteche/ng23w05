@@ -1,4 +1,4 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="save(); form.reset()">
   <div class="form-group">
     <label for="contact-form-firstname">Prénom</label>
     <input type="text" id="contact-form-firstname" name="firstname" class="form-control"
