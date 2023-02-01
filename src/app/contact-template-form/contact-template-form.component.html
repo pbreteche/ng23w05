@@ -1,22 +1,29 @@
-<form>
+<form #form="ngForm">
   <div>
     <label for="contact-form-firstname">Prénom</label>
     <input type="text" id="contact-form-firstname" name="firstname"
-           [(ngModel)]="contact.firstName">
+           [(ngModel)]="contact.firstName" required #firstname="ngModel">
+    <p [hidden]="firstname.untouched || !(firstname.errors?.['required'])">
+      Vous devez saisir un prénom.
+    </p>
   </div>
   <div>
     <label for="contact-form-lastname">Nom de famille</label>
     <input type="text" id="contact-form-lastname" name="lastname"
-           [(ngModel)]="contact.lastName">
+           [(ngModel)]="contact.lastName" required #lastname="ngModel">
+    <p [hidden]="lastname.untouched || !(lastname.errors?.['required'])">
+      Vous devez saisir un nom de famille.
+    </p>
   </div>
   <div>
     <label for="contact-form-email">Adresse email</label>
     <input type="email" id="contact-form-email" name="email"
-           [(ngModel)]="contact.email">
+           [(ngModel)]="contact.email" email #email="ngModel">
+    <p [hidden]="email.untouched || !(email.errors?.['email'])">
+      Ça ne ressemble pas à une adresse email.
+    </p>
   </div>
   <div>
-    <button>Enregistrer</button>
+    <button [disabled]="form.invalid">Enregistrer</button>
   </div>
 </form>
-
-<pre>{{ contact|json}}</pre>

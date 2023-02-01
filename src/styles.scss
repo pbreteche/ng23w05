@@ -1,5 +1,8 @@
 $background-light: #feb;
 $default-foreground: #123;
+$danger-color: #F00;
+$warning-color: #FB0;
+$success-color: #0F0;
 
 html {
   font: 20px "DejaVu Sans", sans-serif;
@@ -10,4 +13,10 @@ body {
   background: $background-light;
   padding: 0;
   margin: 0;
+}
+
+// Formulaires
+/* commentaire qui est conservé dans le fichier CSS généré */
+:not(form).ng-invalid.ng-touched {
+  background: lighten($danger-color, 35%);
 }
