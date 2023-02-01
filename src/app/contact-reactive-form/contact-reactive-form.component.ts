@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Contact} from "../../model/contact";
 import {ContactListService} from "../contact/contact-list.service";
+import {AppValidators} from "../app-validators";
 
 @Component({
   selector: 'app-contact-reactive-form',
@@ -18,6 +19,10 @@ export class ContactReactiveFormComponent {
       ]),
     }),
     email: new FormControl('', Validators.email),
+    period: new FormGroup({
+      from: new FormControl(''),
+      to: new FormControl(''),
+    }, AppValidators.period),
   });
 
   constructor(public listService: ContactListService) {

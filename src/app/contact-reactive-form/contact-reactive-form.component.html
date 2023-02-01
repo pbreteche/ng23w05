@@ -25,6 +25,18 @@
       Ça ne ressemble pas à une adresse email.
     </p>
   </div>
+  <div class="form-group">
+    <div formGroupName="period">
+      <label for="contact-form-period-from">Du</label>
+      <input type="date" name="from" id="contact-form-period-from" formControlName="from">
+      <label for="contact-form-period-to">au</label>
+      <input type="date" name="from" id="contact-form-period-to" formControlName="to">
+    </div>
+    <p [hidden]="getField('period')?.untouched || !(getField('period')?.errors?.['period'])" class="tooltip">
+      La date de début ({{getField('period')?.errors?.['period'].errorCode}})
+      doit être antérieure à la date de fin.
+    </p>
+  </div>
   <div>
     <button [disabled]="form.invalid">Enregistrer</button>
   </div>
