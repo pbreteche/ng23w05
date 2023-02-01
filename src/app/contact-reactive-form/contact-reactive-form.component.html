@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div formGroupName="civility">
+    <div class="form-group">
+      <label for="contact-form-firstname">Prénom</label>
+      <input type="text" id="contact-form-firstname" name="firstname"
+             formControlName="firstname">
+      <p [hidden]="firstname.untouched || !(firstname.errors?.['required'])" class="tooltip">
+        Vous devez saisir un prénom.
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="contact-form-lastname">Nom de famille</label>
+      <input type="text" id="contact-form-lastname" name="lastname"
+             formControlName="lastname">
+      <p [hidden]="lastname.untouched || !(lastname.errors?.['required'])" class="tooltip">
+        Vous devez saisir un nom de famille.
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="contact-form-email">Adresse email</label>
+    <input type="email" id="contact-form-email" name="email"
+           formControlName="email">
+    <p [hidden]="getField('email')?.untouched || !(getField('email')?.errors?.['email'])" class="tooltip">
+      Ça ne ressemble pas à une adresse email.
+    </p>
+  </div>
+  <div>
+    <button [disabled]="form.invalid">Enregistrer</button>
+  </div>
+</form>

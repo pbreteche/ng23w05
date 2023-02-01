@@ -17,7 +17,7 @@ body {
 
 // Formulaires
 /* commentaire qui est conservé dans le fichier CSS généré */
-:not(form).ng-invalid.ng-touched {
+:not(form, div).ng-invalid.ng-touched {
   background: lighten($danger-color, 35%);
 }
 
