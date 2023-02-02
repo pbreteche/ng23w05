@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../../model/contact";
-import DATA from "../../stub/contacts";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactListService {
-  list: Contact[] = DATA;
-  constructor() {
+  list: Contact[] = [];
+  constructor(private http: HttpClient) {
+    this.http.get('assets/data.json')
+      .subscribe(data => this.list.push(...data as Contact[]))
   }
 }

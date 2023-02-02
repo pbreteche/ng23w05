@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
 import { PeriodDirective } from './period.directive';
 import { MinDateDirective } from './min-date.directive';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MinDateDirective } from './min-date.directive';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
