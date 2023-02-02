@@ -4,7 +4,7 @@
       <label for="contact-form-firstname">Prénom</label>
       <input type="text" id="contact-form-firstname" name="firstname"
              formControlName="firstname">
-      <p [hidden]="firstname.untouched || !(firstname.errors?.['required'])" class="tooltip">
+      <p *ngIf="firstname.touched && firstname.errors?.['required']" class="tooltip">
         Vous devez saisir un prénom.
       </p>
     </div>
@@ -12,7 +12,7 @@
       <label for="contact-form-lastname">Nom de famille</label>
       <input type="text" id="contact-form-lastname" name="lastname"
              formControlName="lastname">
-      <p [hidden]="lastname.untouched || !(lastname.errors?.['required'])" class="tooltip">
+      <p *ngIf="lastname.touched && lastname.errors?.['required']" class="tooltip">
         Vous devez saisir un nom de famille.
       </p>
     </div>
@@ -21,7 +21,7 @@
     <label for="contact-form-email">Adresse email</label>
     <input type="email" id="contact-form-email" name="email"
            formControlName="email">
-    <p [hidden]="getField('email')?.untouched || !(getField('email')?.errors?.['email'])" class="tooltip">
+    <p *ngIf="getField('email')?.touched && getField('email')?.errors?.['email']" class="tooltip">
       Ça ne ressemble pas à une adresse email.
     </p>
   </div>
@@ -32,7 +32,11 @@
       <label for="contact-form-period-to">au</label>
       <input type="date" name="from" id="contact-form-period-to" formControlName="to">
     </div>
-    <p [hidden]="getField('period')?.untouched || !(getField('period')?.errors?.['period'])" class="tooltip">
+    <p *ngIf="getField('period.from')?.touched && getField('period.from')?.errors?.['minDate']" class="tooltip">
+      La date de début doit être ultérieur à la date du jour
+      ({{getField('period.from')?.errors?.['minDate'].min|date:'shortDate'}}).
+    </p>
+    <p *ngIf="getField('period')?.touched && getField('period')?.errors?.['period']" class="tooltip">
       La date de début ({{getField('period')?.errors?.['period'].errorCode}})
       doit être antérieure à la date de fin.
     </p>

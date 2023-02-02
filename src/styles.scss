@@ -22,20 +22,12 @@ body {
 }
 
 .form-group {
-  position: relative;
   margin-bottom: 1em;
 }
 
 .tooltip {
-  display: none;
-  position: absolute;
   background: lighten($danger-color, 35%);
   border: 1px solid $danger-color;
   border-radius: .5em;
-  bottom: 1em;
   padding: .25em;
-}
-
-.ng-invalid.ng-touched:hover + .tooltip {
-  display: block;
 }

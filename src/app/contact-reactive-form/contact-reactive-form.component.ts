@@ -20,7 +20,10 @@ export class ContactReactiveFormComponent {
     }),
     email: new FormControl('', Validators.email),
     period: new FormGroup({
-      from: new FormControl(''),
+      from: new FormControl('', [
+        AppValidators.minDate(new Date()),
+        Validators.required,
+      ]),
       to: new FormControl(''),
     }, AppValidators.period),
   });
