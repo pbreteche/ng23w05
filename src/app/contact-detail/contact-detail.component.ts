@@ -11,6 +11,8 @@ export class ContactDetailComponent {
   contact?: Contact;
 
   constructor(private currentContact: CurrentContactService) {
-    this.contact = currentContact.data;
+    currentContact.getData().subscribe(
+      (contact: Contact) => this.contact = contact
+    );
   }
 }
