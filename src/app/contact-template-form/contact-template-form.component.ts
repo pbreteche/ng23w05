@@ -9,6 +9,7 @@ import {ContactListService} from "../contact/contact-list.service";
 })
 export class ContactTemplateFormComponent {
   contact = new Contact();
+  period = {from: '', to: ''};
 
   constructor(public listService: ContactListService) {
   }
