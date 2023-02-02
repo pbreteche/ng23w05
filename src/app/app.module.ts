@@ -7,6 +7,7 @@ import {ContactListComponent} from './contact-list/contact-list.component';
 import {ContactTemplateFormComponent} from './contact-template-form/contact-template-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
+import { PeriodDirective } from './period.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
     ContactListComponent,
     ContactReactiveFormComponent,
     ContactTemplateFormComponent,
+    PeriodDirective,
   ],
   imports: [
     BrowserModule,

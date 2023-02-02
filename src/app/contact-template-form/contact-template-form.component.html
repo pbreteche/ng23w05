@@ -1,4 +1,4 @@
-<form #form="ngForm" (ngSubmit)="save(); form.reset()">
+<form #form="ngForm" (ngSubmit)="save(); form.reset()" appPeriod>
   <div class="form-group">
     <label for="contact-form-firstname">Prénom</label>
     <input type="text" id="contact-form-firstname" name="firstname" class="form-control"
@@ -35,7 +35,7 @@
     ({{from.errors?.['minDate'].min|date:'shortDate'}}).
   </p>
   <p *ngIf="form.touched && form.errors?.['period']" class="tooltip">
-    La date de début ({{form.errors?.['period'].errorCode}})
+    La date de début ({{form.errors?.['period'].fromValue|date:'shortDate'}})
     doit être antérieure à la date de fin.
   </p>
 </div>
