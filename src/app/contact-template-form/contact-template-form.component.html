@@ -26,7 +26,7 @@
   <div>
     <label for="contact-form-period-from">Du</label>
     <input type="date" name="from" id="contact-form-period-from" [(ngModel)]="period.from" #from="ngModel"
-           required >
+           required appMinDate="{{today}}">
     <label for="contact-form-period-to">au</label>
     <input type="date" name="to" id="contact-form-period-to" [(ngModel)]="period.to" #to="ngModel">
   </div>

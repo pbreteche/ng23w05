@@ -8,6 +8,7 @@ import {ContactTemplateFormComponent} from './contact-template-form/contact-temp
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
 import { PeriodDirective } from './period.directive';
+import { MinDateDirective } from './min-date.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PeriodDirective } from './period.directive';
     ContactReactiveFormComponent,
     ContactTemplateFormComponent,
     PeriodDirective,
+    MinDateDirective,
   ],
   imports: [
     BrowserModule,

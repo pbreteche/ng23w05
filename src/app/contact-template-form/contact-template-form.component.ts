@@ -10,6 +10,7 @@ import {ContactListService} from "../contact/contact-list.service";
 export class ContactTemplateFormComponent {
   contact = new Contact();
   period = {from: '', to: ''};
+  today = new Date();
 
   constructor(public listService: ContactListService) {
   }
