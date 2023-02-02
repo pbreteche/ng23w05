@@ -16,7 +16,7 @@ export class ContactTemplateFormComponent {
   }
 
   save() {
-    this.listService.list.push(this.contact);
+    this.listService.add(this.contact);
     this.contact = new Contact();
   }
 }

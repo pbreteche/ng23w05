@@ -26,4 +26,17 @@ export class ContactListService {
         this.currentContact.data = this.list[0];
       })
   }
+
+  add(contact: Contact) {
+    this.list.push(contact);
+    this.http.post('contact', contact)
+      .pipe(
+        catchError((error) => {
+          console.log(error.status);
+          return throwError(() => {})
+
+        })
+      )
+      .subscribe(data => console.log(data))
+  }
 }
