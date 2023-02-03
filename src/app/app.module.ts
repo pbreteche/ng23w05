@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {GlobalErrorHandlerService} from "./global-error-handler.service";
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import {RouterModule} from "@angular/router";
+import {ContactResolver} from "./contact.resolver";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {RouterModule} from "@angular/router";
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: ContactListComponent},
-      {path: 'contact/:index', component: ContactDetailComponent}
+      {path: 'contact/:index', component: ContactDetailComponent, resolve: {contact: ContactResolver}}
     ])
   ],
   providers: [

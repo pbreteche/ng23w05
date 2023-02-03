@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from "../../model/contact";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {ContactListService} from "../contact/contact-list.service";
+import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
 
 @Component({
@@ -10,18 +9,14 @@ import {Observable} from "rxjs";
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  contact$?: Observable<Contact>;
+  contact?: Contact;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private contactList: ContactListService
+    private activatedRoute: ActivatedRoute
   ) {}
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      const index = params.get('index');
-      if (index != null) {
-        this.contact$ = this.contactList.get(+index);
-      }
+    this.activatedRoute.data.subscribe(({contact}) => {
+      this.contact = contact;
     });
   }
 }
