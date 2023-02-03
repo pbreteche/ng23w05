@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -10,6 +10,8 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
 import { PeriodDirective } from './period.directive';
 import { MinDateDirective } from './min-date.directive';
 import {HttpClientModule} from "@angular/common/http";
+import {GlobalErrorHandlerService} from "./global-error-handler.service";
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
     ContactTemplateFormComponent,
     PeriodDirective,
     MinDateDirective,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: GlobalErrorHandlerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

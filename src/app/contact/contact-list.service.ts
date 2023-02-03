@@ -20,8 +20,7 @@ export class ContactListService {
       })
     }))
       .catch((error) => {
-        console.log(error);
-        return throwError(() => {});
+        return throwError(() => 'Impossible de contacter le serveur');
       })
       .then(data => {
         this.list.push(...data as Contact[]);
@@ -34,9 +33,7 @@ export class ContactListService {
     this.http.post('contact', contact)
       .pipe(
         catchError((error) => {
-          console.log(error.status);
-          return throwError(() => {})
-
+          return throwError(() => 'Le serveur nous a répondu '+error.status)
         })
       )
       .subscribe(data => console.log(data))

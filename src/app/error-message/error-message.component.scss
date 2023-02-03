@@ -1,0 +1,7 @@
+@import "../../styles/variables";
+
+p {
+  background-color: lighten($danger-color, 35%);
+  color: darken($danger-color, 20%);
+  border: 2px solid darken($danger-color, 20%);
+}
