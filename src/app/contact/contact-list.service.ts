@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../../model/contact";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CurrentContactService} from "./current-contact.service";
 import {catchError, retry, throwError} from "rxjs";
 
@@ -13,7 +13,12 @@ export class ContactListService {
     private http: HttpClient,
     private currentContact: CurrentContactService
   ) {
-    this.http.get('assets/data.json')
+    this.http.get('assets/data.json', {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'security-token',
+      })
+    })
       .pipe(
         retry(3),
         catchError((error) => {
