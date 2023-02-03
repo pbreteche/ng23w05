@@ -15,6 +15,8 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
 import {RouterModule} from "@angular/router";
 import {ContactResolver} from "./contact.resolver";
 import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
+import {AuthGuard} from "./auth.guard";
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { MenuComponent } from './menu/menu.component';
     MinDateDirective,
     ErrorMessageComponent,
     MenuComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { MenuComponent } from './menu/menu.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: ContactListComponent},
-      {path: 'contact/nouveau', component: ContactTemplateFormComponent},
+      {path: 'contact/nouveau', component: ContactTemplateFormComponent, canActivate: [AuthGuard]},
       {path: 'contact/:index', component: ContactDetailComponent, resolve: {contact: ContactResolver}},
     ])
   ],
