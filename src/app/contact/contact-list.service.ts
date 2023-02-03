@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../../model/contact";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {CurrentContactService} from "./current-contact.service";
 import {catchError, firstValueFrom, throwError} from "rxjs";
 
 @Injectable({
@@ -10,8 +9,7 @@ import {catchError, firstValueFrom, throwError} from "rxjs";
 export class ContactListService {
   list: Contact[] = [];
   constructor(
-    private http: HttpClient,
-    private currentContact: CurrentContactService
+    private http: HttpClient
   ) {
     firstValueFrom(this.http.get('assets/data.json', {
       headers: new HttpHeaders({
@@ -24,7 +22,6 @@ export class ContactListService {
       })
       .then(data => {
         this.list.push(...data as Contact[]);
-        this.currentContact.data = this.list[0];
       });
   }
 
@@ -37,5 +34,9 @@ export class ContactListService {
         })
       )
       .subscribe(data => console.log(data))
+  }
+
+  get(index: number): Contact|undefined {
+    return this.list[index];
   }
 }

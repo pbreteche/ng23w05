@@ -1,7 +1,7 @@
 <nav>
   <ul>
-    <li *ngFor="let contact of listService.list">
-      <a (click)="setCurrent(contact)">{{contact.firstName}} {{contact.lastName}}</a>
+    <li *ngFor="let contact of listService.list;  index as i">
+      <a [routerLink]="['contact', i]">{{contact.firstName}} {{contact.lastName}}</a>
     </li>
   </ul>
 </nav>

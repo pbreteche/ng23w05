@@ -12,6 +12,7 @@ import { MinDateDirective } from './min-date.directive';
 import {HttpClientModule} from "@angular/common/http";
 import {GlobalErrorHandlerService} from "./global-error-handler.service";
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,10 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      {path: '', component: ContactListComponent},
+      {path: 'contact/:index', component: ContactDetailComponent}
+    ])
   ],
   providers: [
     {provide: ErrorHandler, useClass: GlobalErrorHandlerService}

@@ -7,6 +7,7 @@ import {Observable, Subject} from "rxjs";
 export class GlobalErrorHandlerService implements ErrorHandler {
   private lastErrorMessageSubject = new Subject<string>();
   handleError(error:any) {
+    console.error(error)
     if (typeof error == 'string') {
       this.lastErrorMessageSubject.next(error);
     }
