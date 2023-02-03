@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Contact} from "../../model/contact";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CurrentContactService} from "./current-contact.service";
-import {catchError, retry, throwError} from "rxjs";
+import {catchError, firstValueFrom, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +13,20 @@ export class ContactListService {
     private http: HttpClient,
     private currentContact: CurrentContactService
   ) {
-    this.http.get('assets/data.json', {
+    firstValueFrom(this.http.get('assets/data.json', {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
         'Authorization': 'security-token',
       })
-    })
-      .pipe(
-        retry(3),
-        catchError((error) => {
-          console.log(error);
-          return throwError(() => {});
-        })
-      )
-      .subscribe(data => {
+    }))
+      .catch((error) => {
+        console.log(error);
+        return throwError(() => {});
+      })
+      .then(data => {
         this.list.push(...data as Contact[]);
         this.currentContact.data = this.list[0];
-      })
+      });
   }
 
   add(contact: Contact) {
