@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import {AuthGuard} from "./auth.guard";
 import {registerLocaleData} from "@angular/common";
 import localeFr from '@angular/common/locales/fr';
+import { TranslitPipe } from './translit.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import localeFr from '@angular/common/locales/fr';
     ErrorMessageComponent,
     MenuComponent,
     LoginComponent,
+    TranslitPipe,
   ],
   imports: [
     BrowserModule,
