@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../../model/contact";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, firstValueFrom, throwError} from "rxjs";
+import {catchError, firstValueFrom, map, Observable, ReplaySubject, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactListService {
   list: Contact[] = [];
+  private _subject = new ReplaySubject<Contact[]>(1);
   constructor(
     private http: HttpClient
   ) {
@@ -22,6 +23,7 @@ export class ContactListService {
       })
       .then(data => {
         this.list.push(...data as Contact[]);
+        this._subject.next(this.list);
       });
   }
 
@@ -36,7 +38,9 @@ export class ContactListService {
       .subscribe(data => console.log(data))
   }
 
-  get(index: number): Contact|undefined {
-    return this.list[index];
+  get(index: number): Observable<Contact> {
+    return this._subject.pipe(
+      map((contacts: Contact[]) => contacts[index])
+    )
   }
 }
