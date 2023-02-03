@@ -36,6 +36,8 @@ export class ContactListService {
         })
       )
       .subscribe(data => console.log(data))
+
+    return this.list.length - 1;
   }
 
   get(index: number): Observable<Contact> {

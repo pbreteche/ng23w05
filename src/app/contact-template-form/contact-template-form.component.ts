@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Contact} from "../../model/contact";
 import {ContactListService} from "../contact/contact-list.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-contact-template-form',
@@ -12,11 +13,14 @@ export class ContactTemplateFormComponent {
   period = {from: '', to: ''};
   today = new Date();
 
-  constructor(public listService: ContactListService) {
-  }
+  constructor(
+    public listService: ContactListService,
+    private router: Router
+  ) {}
 
   save() {
-    this.listService.add(this.contact);
+    const id = this.listService.add(this.contact);
+    this.router.navigate(['contact', id]);
     this.contact = new Contact();
   }
 }
