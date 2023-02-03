@@ -14,6 +14,7 @@ import {GlobalErrorHandlerService} from "./global-error-handler.service";
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import {RouterModule} from "@angular/router";
 import {ContactResolver} from "./contact.resolver";
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ContactResolver} from "./contact.resolver";
     PeriodDirective,
     MinDateDirective,
     ErrorMessageComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import {ContactResolver} from "./contact.resolver";
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: ContactListComponent},
-      {path: 'contact/:index', component: ContactDetailComponent, resolve: {contact: ContactResolver}}
+      {path: 'contact/nouveau', component: ContactTemplateFormComponent},
+      {path: 'contact/:index', component: ContactDetailComponent, resolve: {contact: ContactResolver}},
     ])
   ],
   providers: [

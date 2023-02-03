@@ -1,0 +1,30 @@
+<nav>
+  <ul>
+    <li>
+      <a (click)="toggle(0)">Accueil</a>
+      <ul [class.collapsed]="collapsed[0]">
+        <li>
+          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Accueil
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li><a routerLink="contact/nouveau" routerLinkActive="active">Nouveau</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,23 @@
+ul {
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+
+  ul {
+    display: block;
+    position: absolute;
+    &.collapsed {
+      display: none;
+    }
+  }
+}
+
+a {
+  display: block;
+  padding: .5em;
+  background-color: chocolate;
+  &.active {
+    background-color: aqua;
+  }
+}
+
