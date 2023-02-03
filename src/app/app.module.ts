@@ -17,6 +17,8 @@ import {ContactResolver} from "./contact.resolver";
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import {AuthGuard} from "./auth.guard";
+import {registerLocaleData} from "@angular/common";
+import localeFr from '@angular/common/locales/fr';
 
 @NgModule({
   declarations: [
@@ -47,4 +49,8 @@ import {AuthGuard} from "./auth.guard";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    registerLocaleData(localeFr);
+  }
+}

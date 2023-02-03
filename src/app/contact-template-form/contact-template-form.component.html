@@ -38,6 +38,7 @@
     La date de début ({{form.errors?.['period'].fromValue|date:'shortDate'}})
     doit être antérieure à la date de fin.
   </p>
+  <p>{{period.from|date}}</p>
 </div>
   <div>
     <button [disabled]="form.invalid">Enregistrer</button>
